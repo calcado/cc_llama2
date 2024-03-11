@@ -1,15 +1,13 @@
 {
   "name": "ccllama2_back",
-  "type":"module",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build":"tsc",
-    "start": "npm run prisma:migrate:deploy && node dist/src/server.js",
-    "test": "dotenv -e .env.test npm run prisma:migrate:deploy & dotenv -e .env.test jest -- -i",
-    "prisma:migrate:dev": "prisma migrate dev",
-    "prisma:migrate:deploy": "prisma migrate deploy"
+    "build": "tsc",
+    "dev": "nodemon src/app.js",
+    "test": "dotenv -e .env.test npm run prisma:migrate:deploy & dotenv -e .env.test jest -- -i"
   },
   "keywords": [],
   "author": "",
@@ -21,21 +19,11 @@
     "dotenv-expand": "^11.0.6",
     "express": "^4.18.3",
     "express-async-errors": "^3.1.1",
-    "joi": "^17.12.2",
-    "jsonwebtoken": "^9.0.2"
+    "node-llama-cpp": "^2.8.8"
   },
   "devDependencies": {
     "dotenv-cli": "^7.4.1",
     "http-status": "^1.7.4",
-    "jest": "^29.7.0",
-    "nodemon": "^3.1.0",
-    "prettier": "^3.2.5",
-    "prisma": "^5.10.2",
-    "supertest": "^6.3.4",
-    "ts-jest": "^29.1.2",
-    "ts-node": "^10.9.2",
-    "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.4.2",
-    "typescript-transform-paths": "^3.4.7"
+    "nodemon": "^3.1.0"
   }
 }
