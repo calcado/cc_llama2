@@ -1,11 +1,28 @@
 import styled from "styled-components";
 import { FaUser, FaKiwiBird } from "react-icons/fa";
+import { Comment } from "react-loader-spinner";
 
 export default function ChatComponent({ chat }) {
   return (
     <Container chat={chat}>
-      {chat.from === "user" ? <FaUser /> : <FaKiwiBird />}
-      <Chat>{chat.message}</Chat>
+      {chat.from === "user" ? <FaUser size={25} /> : <FaKiwiBird size={25} />}
+
+      <Chat>
+        {chat.message ? (
+          chat.message
+        ) : (
+          <Comment
+            visible={true}
+            height="50"
+            width="50"
+            ariaLabel="comment-loading"
+            wrapperStyle={{}}
+            wrapperClass="comment-wrapper"
+            color="#fff"
+            backgroundColor="grey"
+          />
+        )}
+      </Chat>
     </Container>
   );
 }

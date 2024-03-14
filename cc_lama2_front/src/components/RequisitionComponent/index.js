@@ -3,9 +3,13 @@ import { FaRegPaperPlane } from "react-icons/fa";
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function RequisitionComponent({ chatContext, setChatContext }) {
+export default function RequisitionComponent({
+  chatContext,
+  setChatContext,
+  loading,
+  setLoading,
+}) {
   const [question, setQuestion] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   const url = process.env.REACT_APP_API_BASE_URL;
 
@@ -21,7 +25,7 @@ export default function RequisitionComponent({ chatContext, setChatContext }) {
     }
     setLoading(true);
     const newArr = [...chatContext, { from: "user", message: question }];
-    setChatContext(newArr);
+    setChatContext([...newArr, { from: "bot", message: null }]);
     setQuestion("");
 
     const promisse = axios.post(`${url}prompt`, {

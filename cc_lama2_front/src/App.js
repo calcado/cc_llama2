@@ -5,6 +5,7 @@ import ChatComponent from "./components/ChatComponent/index.js";
 
 export default function App() {
   const [chatContext, setChatContext] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   return (
     <Container>
@@ -17,6 +18,8 @@ export default function App() {
       <RequisitionComponent
         chatContext={chatContext}
         setChatContext={setChatContext}
+        loading={loading}
+        setLoading={setLoading}
       />
     </Container>
   );
