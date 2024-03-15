@@ -10,8 +10,8 @@ export default function App() {
   return (
     <Container>
       <ChatView>
-        {chatContext.map((chat) => (
-          <ChatComponent chat={chat} />
+        {chatContext.map((chat, index) => (
+          <ChatComponent key={`${index}${chat.message}`} chat={chat} />
         ))}
       </ChatView>
 

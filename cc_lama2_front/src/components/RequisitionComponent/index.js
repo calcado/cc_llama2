@@ -29,7 +29,7 @@ export default function RequisitionComponent({
     setQuestion("");
 
     const promisse = axios.post(`${url}prompt`, {
-      body: question,
+      question: question,
     });
 
     promisse.then((response) => {
